@@ -1,26 +1,16 @@
-import React from "react";
-import { data, data2 } from "../App";
+import React, { useContext } from "react";
+import { data1, data2 } from "../App";
 
-const Comp = () => {
+const ComC = () => {
+  const myName = useContext(data1);
+  const place = useContext(data2);
   return (
     <div>
-      <data.Consumer>
-        {(name) => {
-          return (
-            <data2.Consumer>
-              {(location) => {
-                return (
-                  <h1>
-                    My name is {name} and I live in {location}
-                  </h1>
-                );
-              }}
-            </data2.Consumer>
-          );
-        }}
-      </data.Consumer>
+      <h1>
+        Hi! I am {myName} and i am currently living in {place}
+      </h1>
     </div>
   );
 };
 
-export default Comp;
+export default ComC;
